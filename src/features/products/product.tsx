@@ -1,4 +1,4 @@
-import { useGetProductByIdQuery } from "./productsService";
+import { useGetProductByIdQuery,useLazyGetProductByIdQuery } from "./productsService";
 import {
     SafeAreaView,
     ScrollView,
@@ -15,8 +15,12 @@ import {
   } from 'react-native/Libraries/NewAppScreen';
 
 const Product = () => {
-  const { data: product, isLoading } = useGetProductByIdQuery(1);
+  const[getProductById,{data,isFetching,isError}]=useLazyGetProductByIdQuery();
 
+
+  const onFetchPress = () =>{
+    getProductById(1)
+  }
   const backgroundStyle = {
     backgroundColor:  Colors.lighter,
   };
@@ -30,14 +34,23 @@ const Product = () => {
     <ScrollView
       contentInsetAdjustmentBehavior="automatic"
       style={backgroundStyle}>
-      <View
-        style={{
-          backgroundColor:  Colors.white,
-        }}>
+      <View>
 
-          <TouchableOpacity style={styles.buttonContainer}>
-            <Text style={styles.buttonText}>Fetch Products</Text>
+          <TouchableOpacity style={styles.buttonContainer} onPress={onFetchPress}>
+            <Text style={styles.buttonText}>Fetch Product</Text>
           </TouchableOpacity>
+
+          {isFetching &&
+            <Text style={styles.fetching}>Fetching...</Text>
+          }
+
+        {isError &&
+            <Text style={styles.error}>Found Error</Text>
+          }
+
+       {!isFetching && data &&
+            <Text style={styles.data}>{JSON.stringify(data)}</Text>
+          }
       
       </View>
     </ScrollView>
@@ -60,6 +73,28 @@ const styles = StyleSheet.create({
       textAlign:"center",
       color:"#FFFFFF"
     },
+
+    fetching: {
+        fontSize: 18,
+        textAlign:"center",
+        color:"#000000",
+        marginTop:20,
+      },
+
+     error: {
+        fontSize: 18,
+        textAlign:"center",
+        color:"#FF0000",
+        marginTop:20,
+      },
+
+      data: {
+        fontSize: 14,
+        textAlign:"center",
+        color:"#000000",
+        marginTop:20,
+
+      },
    
   });
   

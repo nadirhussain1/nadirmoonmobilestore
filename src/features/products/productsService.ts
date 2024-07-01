@@ -27,5 +27,5 @@ export const productAPI = createApi({
   })
 });
 
-export const { useGetProductByIdQuery } = productAPI;
+export const { useGetProductByIdQuery,useLazyGetProductByIdQuery } = productAPI;
 
