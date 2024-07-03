@@ -8,6 +8,7 @@ import {TextInputLabelProp} from 'react-native-paper/lib/typescript/components/T
 
 export type TextInputProps = {
   label: TextInputLabelProp;
+  value: string;
   mode?: 'flat' | 'outlined';
   disabled?: boolean;
   placeholder?: string;
