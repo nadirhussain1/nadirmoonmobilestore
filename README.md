@@ -1,10 +1,14 @@
-This is a sample react native project that contains integration of
-Redux Toolkit Query with Typescript.
+This project was initially started as a demo application that integrated
+Redux Toolkit Query with tyepscript. However, then I thought to extend it and
+build enterprise level architecture.
 
-Feature based project structure has been setup in it.
+Theme and Styling:
+I have integrated react-native-paper library for base components. Then wrappers
+have been written over its component to maintain consistency in whole application.
 
-After you write createAPI query, then configure reducer and middleware in your store
+State Management and API Integration:
 
-and then provide this store to a provider that wraps your whole application in App.tsx
+Redux toolkit has been integrated for state management and RTKQuery has been used for
+api integration.
 
-Loading and Error states have also been handled in product.tsx
+There will be video tutorials on my youtube channel @nadirhussainar to explain the concepts related with Redux architecture, ReduxToolkit and RTKQuery.
