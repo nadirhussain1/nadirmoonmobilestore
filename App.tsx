@@ -8,13 +8,18 @@
 import React from 'react';
 
 import {Provider as ReduxProvider} from 'react-redux';
-import store from './src/store/store';
+import {PaperProvider} from 'react-native-paper';
+
+import store from './src/config/store';
 import ProductDetail from './src/features/products/ProductDetail';
+import {theme} from './src/config/theme';
 
 function App(): React.JSX.Element {
   return (
     <ReduxProvider store={store}>
-      <ProductDetail />
+      <PaperProvider theme={theme}>
+        <ProductDetail />
+      </PaperProvider>
     </ReduxProvider>
   );
 }
