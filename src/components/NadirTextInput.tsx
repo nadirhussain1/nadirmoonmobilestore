@@ -1,19 +1,26 @@
 import {ReactNode} from 'react';
-import {GestureResponderEvent} from 'react-native';
+import {GestureResponderEvent, StyleProp, TextStyle} from 'react-native';
 import {TextInput} from 'react-native-paper';
+import {TextInputLabelProp} from 'react-native-paper/lib/typescript/components/TextInput/types';
 
 // a wrapper written over react-native-paper button to reduce overhead of extra props
 // and maintain consistency throughout the application
 
 export type TextInputProps = {
-  mode: 'flat' | 'outlined';
-  disabled: boolean;
-  placeholder: string;
-  textColor: string;
-  onChangeText: (text: string) => void;
+  label: TextInputLabelProp;
+  mode?: 'flat' | 'outlined';
+  disabled?: boolean;
+  placeholder?: string;
+  textColor?: string;
+  onChangeText?: (text: string) => void;
   children?: ReactNode;
+  style?: StyleProp<TextStyle>;
 };
 
-export const NadirInputText = ({children, ...props}: TextInputProps) => {
-  return <TextInput {...props}></TextInput>;
+export const NadirInputText = ({
+  children,
+  mode = 'outlined',
+  ...props
+}: TextInputProps) => {
+  return <TextInput mode={mode} {...props}></TextInput>;
 };
