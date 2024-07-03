@@ -15,7 +15,7 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-const Product = () => {
+const ProductDetail = () => {
   const [getProductById, {data, isFetching, isError}] =
     useLazyGetProductByIdQuery();
 
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Product;
+export default ProductDetail;

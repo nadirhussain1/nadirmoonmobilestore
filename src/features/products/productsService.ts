@@ -1,31 +1,16 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-export type Rating = {
-  rate: number;
-  count: number;
-}
-
-export type Product = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating:Rating;
-}
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {Product} from './types';
 
 export const productAPI = createApi({
-  reducerPath: "productApi",
+  reducerPath: 'productApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://fakestoreapi.com/"
+    baseUrl: 'https://fakestoreapi.com/',
   }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     getProductById: builder.query<Product, number>({
-      query: (id) => `products/${id}`
-    })
-  })
+      query: id => `products/${id}`,
+    }),
+  }),
 });
 
-export const { useGetProductByIdQuery,useLazyGetProductByIdQuery } = productAPI;
-
+export const {useGetProductByIdQuery, useLazyGetProductByIdQuery} = productAPI;
