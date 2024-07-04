@@ -19,7 +19,7 @@ function App(): React.JSX.Element {
   return (
     <ReduxProvider store={store}>
       <PaperProvider theme={theme}>
-        <CompleteProfile />
+        <ProductDetail />
       </PaperProvider>
     </ReduxProvider>
   );

@@ -1,7 +1,4 @@
-import {
-  useGetProductByIdQuery,
-  useLazyGetProductByIdQuery,
-} from './productsService';
+import {useLazyGetProductByIdQuery} from './productsAPISlice';
 import {
   SafeAreaView,
   ScrollView,
@@ -9,7 +6,6 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  useColorScheme,
   View,
 } from 'react-native';
 

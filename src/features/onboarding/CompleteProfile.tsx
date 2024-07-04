@@ -12,7 +12,7 @@ import {useEffect, useState} from 'react';
 import {NadirButton, NadirInputText, TopSpacer} from '../../components';
 import {useAppSelector} from '../../config/store';
 import {useAppDispatch} from '../../config/store';
-import {updateProfile, updateEmail} from './profileSlice';
+import {updateProfile, updateEmail} from './profileStateSlice';
 
 const CompleteProfile = () => {
   const profileSliceData = useAppSelector(state => state.profile);
