@@ -9,10 +9,10 @@ import {
 } from 'react-native';
 import {useEffect, useState} from 'react';
 
-import {NadirButton, NadirInputText, TopSpacer} from '../../components';
-import {useAppSelector} from '../../config/store';
-import {useAppDispatch} from '../../config/store';
-import {updateProfile, updateEmail} from './profileStateSlice';
+import {NadirButton, NadirInputText, TopSpacer} from '../../../components';
+import {useAppSelector} from '../../../store/store';
+import {useAppDispatch} from '../../../store/store';
+import {updateProfile, updateEmail} from '../state/profileStateSlice';
 
 const CompleteProfile = () => {
   const profileSliceData = useAppSelector(state => state.profile);

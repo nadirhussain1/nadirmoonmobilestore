@@ -10,10 +10,10 @@ import React from 'react';
 import {Provider as ReduxProvider} from 'react-redux';
 import {PaperProvider} from 'react-native-paper';
 
-import store from './src/config/store';
-import ProductDetail from './src/features/products/ProductDetail';
-import CompleteProfile from './src/features/onboarding/CompleteProfile';
-import {theme} from './src/config/theme';
+import store from './src/store/store';
+import ProductDetail from './src/features/products/components/ProductDetail';
+import CompleteProfile from './src/features/onboarding/components/CompleteProfile';
+import {theme} from './src/theme/theme';
 
 function App(): React.JSX.Element {
   return (

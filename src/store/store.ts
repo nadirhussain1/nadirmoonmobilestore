@@ -1,15 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
-import {storeAPI} from './storeAPI';
-import profileSlice from '../features/onboarding/profileStateSlice';
+import {baseApi} from '../api/baseApi';
+import profileSlice from '../features/onboarding/state/profileStateSlice';
 
 const store = configureStore({
   reducer: {
     profile: profileSlice,
-    [storeAPI.reducerPath]: storeAPI.reducer,
+    [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(storeAPI.middleware),
+    getDefaultMiddleware().concat(baseApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

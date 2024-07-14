@@ -1,4 +1,4 @@
-import {useLazyGetProductByIdQuery} from './productsAPISlice';
+import {useLazyGetProductByIdQuery} from '../service/productsApi';
 import {
   SafeAreaView,
   ScrollView,
