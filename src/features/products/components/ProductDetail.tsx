@@ -1,4 +1,4 @@
-import {useLazyGetProductByIdQuery} from '../service/productsApi';
+import {useLazyGetProductsQuery} from '../service/productsApi';
 import {
   SafeAreaView,
   ScrollView,
@@ -14,13 +14,12 @@ import {useAddProductMutation} from '../service/productsApi';
 import {TEST_PRODUCT} from '../service/testProducts';
 
 const ProductDetail = () => {
-  const [getProductById, {data, isFetching, isError}] =
-    useLazyGetProductByIdQuery();
+  const [getProducts, {data, isFetching, isError}] = useLazyGetProductsQuery();
 
   const [addProduct] = useAddProductMutation();
 
   const onFetchPress = () => {
-    getProductById(1);
+    getProducts();
   };
 
   const onAddProduct = async () => {
