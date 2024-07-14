@@ -10,14 +10,23 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {useAddProductMutation} from '../service/productsApi';
+import {TEST_PRODUCT} from '../service/testProducts';
 
 const ProductDetail = () => {
   const [getProductById, {data, isFetching, isError}] =
     useLazyGetProductByIdQuery();
 
+  const [addProduct] = useAddProductMutation();
+
   const onFetchPress = () => {
     getProductById(1);
   };
+
+  const onAddProduct = async () => {
+    const result = await addProduct(TEST_PRODUCT);
+  };
+
   const backgroundStyle = {
     backgroundColor: Colors.lighter,
   };
@@ -36,6 +45,12 @@ const ProductDetail = () => {
             style={styles.buttonContainer}
             onPress={onFetchPress}>
             <Text style={styles.buttonText}>Fetch Product</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={onAddProduct}>
+            <Text style={styles.buttonText}>Add Product</Text>
           </TouchableOpacity>
 
           {isFetching && <Text style={styles.fetching}>Fetching...</Text>}
